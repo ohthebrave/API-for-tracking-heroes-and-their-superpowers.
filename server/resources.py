@@ -14,6 +14,7 @@ powers_schema = PowerSchema()
 hero_power_schema = HeroPowerSchema()
 
 
+# Implemented GET /heroes route and returned JSON data as specified. 
 class Heroes(Resource):
 
     def get(self):
@@ -22,6 +23,7 @@ class Heroes(Resource):
      
 api.add_resource(Heroes, '/heroes')
 
+# Implemented GET /heroes/:id route, handled either existing or non-existing heroes, and returned JSON data as specified. 
 class HeroesByID(Resource):
 
     def get(self, id):
@@ -79,8 +81,8 @@ api.add_resource(PowersByID, '/powers/<int:id>')
 # Implemented GET /hero_powers route
 class HeroPowers(Resource):
 
-    def get(self, id):
-        hero_power= Hero_power.query.filter_by(id=id).first()
+    def get(self):
+        hero_power= Hero_power.query.all()
 
         return make_response(hero_power_schema.dump(hero_power), 200)
     
