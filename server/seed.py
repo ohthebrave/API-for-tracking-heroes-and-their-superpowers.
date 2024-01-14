@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import random
 from app import app
-from model import db, Hero, HeroPower, Power
+from model import db, Hero, Hero_power, Power
 
 
 with app.app_context():
 
     Hero.query.delete()
-    HeroPower.query.delete()
+    Hero_power.query.delete()
     Power.query.delete()
 
     # puts "🦸‍♀️ Seeding powers..."
@@ -53,7 +53,7 @@ with app.app_context():
             power = Power.query.get(random.choice(Power.query.with_entities(Power.id).all()[0]))
 
             # Create a HeroPower instance and add it to the database session
-            hero_power = HeroPower(
+            hero_power = Hero_power(
                 hero_id=hero.id,
                 power_id=power.id,
                 strength=random.choice(strengths)

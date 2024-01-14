@@ -4,9 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask-marshmallow = "*"
+flask = "2.2.2"
+flask-sqlalchemy = "3.0.3"
+Werkzeug = "2.2.2"
+flask-migrate = "3.1.0"
+flask-restful = "0.3.9"
+flask-cors = "*"
+flask-marshmallow = "==0.15.0"
+marshmallow-sqlalchemy = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.12.0"

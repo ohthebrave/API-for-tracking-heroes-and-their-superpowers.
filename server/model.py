@@ -18,7 +18,7 @@ class Hero(db.Model):
     def __repr__(self):
         return f"<Hero {self.name}, created at {self.created_at}>"
     
-class HeroPower(db.Model):
+class Hero_power(db.Model):
     __tablename__ = 'hero_powers'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -63,9 +63,6 @@ class Power(db.Model):
             raise ValueError("Description must not be empty")
         if len(value) > 255:
             raise ValueError("Description should not exceed 255 characters")
-        # Allowed values validation (English characters only)
-        if not re.match("^[a-zA-Z ]*$", value):
-            raise ValueError("Description must contain only English characters.")
         return value 
 
     def __repr__(self):
