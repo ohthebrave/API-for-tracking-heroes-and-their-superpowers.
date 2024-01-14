@@ -1,11 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import validates
-import re
+from sqlalchemy_serializer import SerializerMixin
+
 
 db = SQLAlchemy()
 
-class Hero(db.Model):
+class Hero(db.Model, SerializerMixin):
     __tablename__ = 'heroes'
+
+    serialize_rules = ('-hero_powers.hero',)
 
     id = db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String)
@@ -13,13 +16,15 @@ class Hero(db.Model):
     created_at=db.Column(db.DateTime, server_default=db.func.now())
     updated_at=db.Column(db.DateTime, onupdate=db.func.now())
 
-    hero_powers = db.relationship('Hero_power', backref='Hero')
+    hero_powers = db.relationship('Hero_power', backref='hero')
 
     def __repr__(self):
         return f"<Hero {self.name}, created at {self.created_at}>"
     
-class Hero_power(db.Model):
+class Hero_power(db.Model, SerializerMixin):
     __tablename__ = 'hero_powers'
+
+    serialize_rules = ('-hero.hero_powers', '-power.hero_powers',)
 
     id = db.Column(db.Integer, primary_key=True)
     strength=db.Column(db.String)
@@ -45,8 +50,10 @@ class Hero_power(db.Model):
     def __repr__(self):
         return f"<Hero ({self.id}) of {self.strength}>"
 
-class Power(db.Model):
+class Power(db.Model, SerializerMixin):
     __tablename__ = 'powers'
+
+    serialize_rules = ('-hero_powers.power',)
 
     id = db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String)
@@ -54,7 +61,7 @@ class Power(db.Model):
     created_at=db.Column(db.DateTime, server_default=db.func.now())
     updated_at=db.Column(db.DateTime, onupdate=db.func.now())
 
-    hero_powers = db.relationship('Hero_power', backref='Power')
+    hero_powers = db.relationship('Hero_power', backref='power')
 
     # Validations added to Power model for description attribute. 
     @validates('description')
