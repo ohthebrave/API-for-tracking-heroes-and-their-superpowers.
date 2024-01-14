@@ -12,7 +12,7 @@ function PowerEditForm() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`/powers/${id}`).then((r) => {
+    fetch(`http://127.0.0.1:5555/powers/${id}`).then((r) => {
       if (r.ok) {
         r.json().then((power) => {
           setPower({ data: power, errors: [], status: "resolved" });
@@ -30,7 +30,7 @@ function PowerEditForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`/powers/${power.id}`, {
+    fetch(`http://127.0.0.1:5555/powers/${power.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function PowerEditForm() {
       }),
     }).then((r) => {
       if (r.ok) {
-        history.push(`/powers/${power.id}`);
+        history.push(`http://127.0.0.1:5555/powers/${power.id}`);
       } else {
         r.json().then((err) =>
           setPower({ data: power, errors: err.errors, status: "rejected" })
