@@ -1,4 +1,4 @@
-from model import db, Hero, Hero_power, Power
+from model import db, Hero, HeroPower, Power
 from flask_marshmallow import Marshmallow
 
 from app import app
@@ -46,7 +46,7 @@ class HeroPowerSchema(ma.SQLAlchemyAutoSchema):
     Schema for HeroPower model.
     """
     class Meta:
-        model = Hero_power
+        model = HeroPower
 
     strength = ma.auto_field()
 
