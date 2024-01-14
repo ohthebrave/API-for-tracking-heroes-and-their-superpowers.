@@ -17,7 +17,7 @@ db.init_app(app)
 
 api = Api(app)
 
-api.add_resource(Heroes, '/heroes', '/heroes/<int:id>')
+api.add_resource(Heroes, '/heroes')
 api.add_resource(HeroesByID, '/heroes/<int:id>')
 api.add_resource(Powers, '/powers')
 api.add_resource(PowersByID, '/powers/<int:id>')

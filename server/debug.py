@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from app import app
-from model import db, Hero, Power, Hero_power
+from model import db, Hero, Power, HeroPower
 
 if __name__ == '__main__':
     
