@@ -18,7 +18,7 @@ class Hero(db.Model):
     def __repr__(self):
         return f"<Hero {self.name}, created at {self.created_at}>"
     
-class Hero_power(db.Model):
+class HeroPower(db.Model):
     __tablename__ = 'hero_powers'
 
     id = db.Column(db.Integer, primary_key=True)
