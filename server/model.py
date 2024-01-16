@@ -8,7 +8,8 @@ db = SQLAlchemy()
 class Hero(db.Model, SerializerMixin):
     __tablename__ = 'heroes'
 
-    serialize_rules = ('-hero_powers.hero',)
+    serialize_rules = ('-powers',)
+    # serialize_only= ('id','name','super_name', )
 
     id = db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String)
