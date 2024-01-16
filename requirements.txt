@@ -8,5 +8,5 @@ flask-marshmallow == "==0.15.0"
 marshmallow-sqlalchemy == "*"
 sqlalchemy-serializer == "*"
 
-[requires]
+
 python_version == "3.12.0"
