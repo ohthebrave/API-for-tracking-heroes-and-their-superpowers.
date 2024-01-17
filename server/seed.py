@@ -142,13 +142,13 @@ heroPowers =[{
 
 with app.app_context():
 
-    # db.session.add_all([Hero(**hero) for  hero in heroes])
-    # db.session.commit()
+    db.session.add_all([Hero(**hero) for  hero in heroes])
+    db.session.commit()
 
     # db.session.add_all([Power(**power) for power in powers])
     # db.session.commit()
 
-    db.session.add_all([Hero_power(**heroPower) for heroPower in heroPowers])
-    db.session.commit()
+    # db.session.add_all([Hero_power(**heroPower) for heroPower in heroPowers])
+    # db.session.commit()
 
     
