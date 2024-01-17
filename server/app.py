@@ -18,6 +18,10 @@ db.init_app(app)
 
 api = Api(app)
 
+@app.route('/')
+def home():
+    return 'This is the home page'
+
 # Implemented GET /heroes route and returned JSON data as specified. 
 class Heroes(Resource):
 
