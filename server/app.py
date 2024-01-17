@@ -4,7 +4,7 @@ from flask_restful import Api, Resource
 from flask_cors import CORS
 
 
-from model import db, Hero, Hero_power, Power
+from server.model import db, Hero, Hero_power, Power
 
 
 app = Flask(__name__)
