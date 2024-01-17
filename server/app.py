@@ -8,7 +8,7 @@ from server.model import db, Hero, Hero_power, Power
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hero.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///server/hero.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
