@@ -1,5 +1,6 @@
-from server.app import app
+from server.app import app, db
 
 if __name__ == '__main__':
     with app.app_context():
+        db.create_all()
         app.run(port=5555,debug=True)

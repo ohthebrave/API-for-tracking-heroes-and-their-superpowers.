@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import random
 from app import app
-from model import db, Hero, Hero_power, Power
+from server.models import db, Hero, Hero_power, Power
 
 
 with app.app_context():
