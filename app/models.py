@@ -1,7 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 
-db = SQLAlchemy()
+db= SQLAlchemy()
+
 
 class Hero(db.Model, SerializerMixin):
     __tablename__ = 'heroes'
@@ -47,3 +48,4 @@ class Hero_power(db.Model, SerializerMixin):
     power_id = db.Column(db.Integer, db.ForeignKey('powers.id'))
     # Hero_power instances are associated with a Power instance through the hero_powers attribute in the Power model.
     power = db.relationship('Power', back_populates='hero_powers')  
+

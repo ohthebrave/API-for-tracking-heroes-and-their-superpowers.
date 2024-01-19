@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-
 from app import app
-from models import db, Hero, Hero_power, Power
 
+from models import db, Hero, Power, Hero_power 
 
 heroes=[{
         "id": 1,
@@ -48,43 +46,43 @@ heroes=[{
 
 powers = [{
   "id": 1,
-  "name": "Kaile",
+  "name": "teleportation",
   "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl."
 }, {
   "id": 2,
-  "name": "Josi",
+  "name": "telekinesis",
   "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet."
 }, {
   "id": 3,
-  "name": "Sherlock",
+  "name": "invisibility",
   "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae."
 }, {
   "id": 4,
-  "name": "Feodora",
+  "name": "teleportation",
   "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus."
 }, {
   "id": 5,
-  "name": "Scot",
+  "name": "mind control",
   "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
 }, {
   "id": 6,
-  "name": "Jordon",
+  "name": "invisibility",
   "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem."
 }, {
   "id": 7,
-  "name": "Corrianne",
+  "name": "mind control",
   "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi."
 }, {
   "id": 8,
-  "name": "Scarlet",
+  "name": "telekinesis",
   "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra."
 }, {
   "id": 9,
-  "name": "Cob",
+  "name": "invisibility",
   "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.  suscipit a, feugiat et, eros."
 }, {
   "id": 10,
-  "name": "Helaina",
+  "name": "mind control",
   "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet."
 }]
 
@@ -142,13 +140,11 @@ heroPowers =[{
 
 with app.app_context():
 
-    db.session.add_all([Hero(**hero) for  hero in heroes])
-    db.session.commit()
+    # db.session.add_all([Hero(**hero) for  hero in heroes])
+    # db.session.commit()
 
     # db.session.add_all([Power(**power) for power in powers])
     # db.session.commit()
 
-    # db.session.add_all([Hero_power(**heroPower) for heroPower in heroPowers])
-    # db.session.commit()
-
-    
+    db.session.add_all([Hero_power(**heroPower) for heroPower in heroPowers])
+    db.session.commit()
