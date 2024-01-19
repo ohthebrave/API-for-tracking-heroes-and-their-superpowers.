@@ -10,6 +10,7 @@ flask-restful = "*"
 flask-sqlalchemy = "*"
 sqlalchemy-serializer = "*"
 flask-cors = "*"
+gunicorn = "*"
 
 [dev-packages]
 
